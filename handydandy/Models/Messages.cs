@@ -1,20 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿
 
 namespace handydandy.Models
 {
-    public class Messages
+    public class Message
     {
-        public int MessageID { get; set; }
+        public int MessageId { get; set; }
         public string Text { get; set; }
         public DateTime Timestamp { get; set; }
-        public int SenderUserID { get; set; }
-        public int SenderTradesmanID { get; set; }
+        public int SenderUserId { get; set; }
+        public int SenderTradesmanId { get; set; }
 
-        //FK to Chat Model
-        public int ChatID { get; set; }
+        //FK
+        public int ChatId { get; set; }
 
-        //Navigation to link back to Chat Model
-        public Chats Chat { get; set; }
+        //Navigation Property
+        public Chat Chat { get; set; }
 
     }
 }

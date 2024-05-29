@@ -1,23 +1,23 @@
 ﻿namespace handydandy.Models
 {
-    public class Tradesmans
+    public class Tradesman
     {
-        public int TradesmanID { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public string name { get; set; }
-        public tradeList tradeOccupation { get; set; }
-        public string? summary { get; set; }
-        public int[] serviceArea = new int[3];
-        public bool profileCompleted { get; set; }
+        public int TradesmanId { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public TradeList TradeOccupation { get; set; }
+        public string? Summary { get; set; }
+        public int ServiceArea { get; set; }
+        public bool ProfileCompleted { get; set; } = false;
      
-
-
         //Navigation Property
-        public ICollection<Cases>? Cases { get; set; }
+        public ICollection<Offer> Offers { get; set; }
+
+    
     }
 
-    public enum tradeList
+    public enum TradeList
     {
         Electrician, Plumber, Carpenting, Painting, Auto_Mechanic, Roofing, Glass
     }

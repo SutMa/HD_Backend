@@ -1,20 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 namespace handydandy.Models
 {
-    public class Chats
+    public class Chat
     {
-        public int ChatID { get; set; }
+        public int ChatId { get; set; }
 
 
         //FK
-        public int CaseID { get; set; }
+        public int CaseId { get; set; }
 
 
         //Navigation Property
-        public Cases Case {  get; set; }
-        public ICollection<Messages>? Messages { get; set; }
+        public Case Case { get; set; }
+        public ICollection<Message> Messages { get; set;}
     }
     
 
    
 }
+ 

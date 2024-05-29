@@ -30,3 +30,4 @@ C:\Users\Dev Account\source\repos\handydandy\handydandy\obj\Debug\net8.0\refint\
 C:\Users\Dev Account\source\repos\handydandy\handydandy\obj\Debug\net8.0\handydandy.pdb
 C:\Users\Dev Account\source\repos\handydandy\handydandy\obj\Debug\net8.0\handydandy.genruntimeconfig.cache
 C:\Users\Dev Account\source\repos\handydandy\handydandy\obj\Debug\net8.0\ref\handydandy.dll
+C:\Users\Dev Account\source\repos\handydandy\handydandy\obj\Debug\net8.0\handydandy.sourcelink.json

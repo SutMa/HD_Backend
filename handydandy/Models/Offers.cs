@@ -1,19 +1,20 @@
 ﻿namespace handydandy.Models
 {
-    public class Offers
+    public class Offer
     {
-        public int OfferID { get; set; }
+        public int OfferId { get; set; }
         public double Price { get; set; }
         public string QuickDetials { get; set; }
-
+        public bool Accepted { get; set; } = false;
 
         //FK
-        public int TradesmanID { get; set; }
-        public int CaseID { get; set; }
+        public int TradesmanId { get; set; }
+        public int CaseId { get; set; }
 
-        //Navigation
-        public Cases Cases { get; set; }
-        public Tradesmans Tradesmans { get; set; }
+        //Navigation Property
+        public Case Case { get; set; }
+        public Tradesman Tradesman { get; set; }
 
     }
 }
+

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "quNND+yaXNI3JbmJwTOIw3nLGAyY440ERDm/TB8Hf15Ys8GdPqbD+mq4D/l0lx+SFgMER4GXMB211LFllg04MA==",
+  "dgSpecHash": "2ypDCZd9Z9SjeoVnDnPptC5rhgOIRl7JJ4o0aTjwuQCph2ZvDCaRG6kGQC3sKSb4/+pAtNmUOTaQNdb0CJO/dw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dev Account\\source\\repos\\handydandy\\handydandy\\handydandy.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\Dev Account\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Dev Account\\.nuget\\packages\\mysql.data\\8.4.0\\mysql.data.8.4.0.nupkg.sha512",
     "C:\\Users\\Dev Account\\.nuget\\packages\\mysql.entityframeworkcore\\8.0.2\\mysql.entityframeworkcore.8.0.2.nupkg.sha512",
+    "C:\\Users\\Dev Account\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512",
     "C:\\Users\\Dev Account\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\Dev Account\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Dev Account\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

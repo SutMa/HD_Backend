@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="MySqlConnector" Version="2.3.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Routes\" />
   </ItemGroup>
 
 </Project>
