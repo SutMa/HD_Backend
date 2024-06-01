@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-
-namespace handydandy.Data
+﻿namespace handydandy.Data
 {
+    using Microsoft.EntityFrameworkCore;
     using handydandy.Models;
     public class AppDbContext : DbContext
     {
@@ -25,14 +23,24 @@ namespace handydandy.Data
             //Users 
             modelBuilder.Entity<User>()
                 .HasKey(u => u.UserId);
+            modelBuilder.Entity<User>()
+                .Property(u => u.UserId)
+                .ValueGeneratedOnAdd();
+               
 
             //Tradesmans
             modelBuilder.Entity<Tradesman>()
                 .HasKey(t => t.TradesmanId);
+            modelBuilder.Entity<Tradesman>()
+                .Property(t => t.TradesmanId)
+                .ValueGeneratedOnAdd();
 
             //Cases
             modelBuilder.Entity<Case>()
                 .HasKey(c => c.CaseId);
+            modelBuilder.Entity<Case>()
+                .Property(c => c.CaseId)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Case>()
               .HasOne(c => c.User)
@@ -42,6 +50,9 @@ namespace handydandy.Data
             //Offers 
             modelBuilder.Entity<Offer>()
                 .HasKey(o => o.OfferId);
+            modelBuilder.Entity<Offer>()
+                .Property(o => o.OfferId)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Offer>()
                 .HasOne(o => o.Case)
@@ -56,6 +67,9 @@ namespace handydandy.Data
             //Chats
             modelBuilder.Entity<Chat>()
                 .HasKey(ch => ch.ChatId);
+            modelBuilder.Entity<Chat>()
+                .Property(ch => ch.ChatId)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Chat>()
                 .HasOne(ch => ch.Case)
@@ -65,6 +79,9 @@ namespace handydandy.Data
             //Messages
             modelBuilder.Entity<Message>()
                 .HasKey(m => m.MessageId);
+            modelBuilder.Entity<Message>()
+                .Property(m => m.MessageId)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Chat)

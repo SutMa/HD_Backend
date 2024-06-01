@@ -1,6 +1,4 @@
-﻿
-
-namespace handydandy.Models
+﻿namespace handydandy.Models
 {
     public class Message
     {
@@ -18,3 +16,5 @@ namespace handydandy.Models
 
     }
 }
+
+
