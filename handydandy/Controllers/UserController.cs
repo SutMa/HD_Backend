@@ -4,21 +4,26 @@ using handydandy.RequestBodyModels;
 using handydandy.Data;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
+using handydandy.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace handydandy.Controllers
 {
     [ApiController]
-    [Route("users")]
+    [Route("user")]
     public class UserController : Controller
     {
         private readonly AppDbContext _context;
-        public UserController(AppDbContext context)
+        private readonly GenerateJWT _jwtGenerator;
+        public UserController(AppDbContext context, GenerateJWT jwtGenerator)
         {
             _context = context;
+            _jwtGenerator = jwtGenerator;
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult>  CreateUser([FromBody] UserCreateModel userModel)
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateModel userModel)
         {
             if (ModelState.IsValid)
             {
@@ -32,7 +37,7 @@ namespace handydandy.Controllers
                     Address = userModel.Address,
                     Zipcode = userModel.Zipcode
                 };
-                
+
 
                 try
                 {
@@ -45,17 +50,17 @@ namespace handydandy.Controllers
                     Console.WriteLine(ex);
                     return BadRequest();
                 }
-       
+
             }
             else
             {
                 return BadRequest();
             }
-           
-         }
+
+        }
 
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         public async Task<IActionResult> LoginUser([FromBody] UserLoginModel userLogin)
         {
             if (!ModelState.IsValid)
@@ -72,17 +77,31 @@ namespace handydandy.Controllers
                 }
                 if (BCrypt.Net.BCrypt.Verify(userLogin.Password, user.Password))
                 {
-                    return Ok();
+                    string token = _jwtGenerator.GenerateJWTToken(user);
+                    return Ok(new { Token = token });
                 }
-                else
-                {
-                    return Unauthorized();
-                }
-               
             }
-            return Ok();
-
+            return Unauthorized();
         }
+
+        [Authorize]
+        [HttpPut("edit")]
+        public async Task<IActionResult> EditUser([FromBody] UserEditModel userEdit)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            _context.Update()
+        }
+
     }
 }
 
