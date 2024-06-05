@@ -93,14 +93,40 @@ namespace handydandy.Controllers
                 return BadRequest();
             }
 
-            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            if (userId == null)
+            var userIdString = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (userIdString == null)
             {
                 return Unauthorized();
             }
+            if (!int.TryParse(userIdString, out int userId))
+            {
+                return BadRequest("Invalid user ID format.");
+            }
 
-            _context.Update()
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User nolt found");
+            }
+            user.Name = userEdit.Name;
+            user.Address = userEdit.Address;
+            user.Zipcode = userEdit.Zipcode;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Ok("User information updated.");
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode(500, "An error occurred while updating the user.");
+            }
+
         }
+
+
+
+
 
     }
 }
